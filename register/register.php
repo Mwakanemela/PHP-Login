@@ -22,7 +22,7 @@ if (isset($_SESSION['account_loggedin'])) {
 
 			<h1>Member Register</h1>
 
-			<form action="register-process.php" method="post" class="form login-form">
+			<form action="" method="post" class="form login-form">
 
 				<label class="form-label" for="username">Username</label>
 				<div class="form-group">
@@ -49,5 +49,8 @@ if (isset($_SESSION['account_loggedin'])) {
 			</form>
 
 		</div>
+
+        <script src="../js/JavaScript-Toast-Library/MToasts.js"></script>
+        <script src="../js/script.js"></script>
 	</body>
 </html>

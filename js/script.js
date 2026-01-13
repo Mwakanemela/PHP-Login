@@ -2,6 +2,7 @@ const loginForm = document.querySelector(".login-form")
 const username = document.getElementById("username").value
 const password = document.getElementById("password").value
 
+
 const toast = new MToast()
 loginForm.onsubmit = (event) => {
     event.preventDefault()
