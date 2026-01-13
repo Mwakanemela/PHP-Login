@@ -31,7 +31,7 @@ registerForm.onsubmit = (event) => {
                 dismissAfter: "3s"
             });
 
-            window.location.href = "home.php"
+            window.location.href = "../index.php"
         }else {
             toast.push({
                 title: "Error Message",
