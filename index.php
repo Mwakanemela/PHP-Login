@@ -14,13 +14,14 @@ if (isset($_SESSION['account_loggedin'])) {
         <meta name="viewport" content="width=device-width,minimum-scale=1">
         <title>Login</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="js/JavaScript-Toast-Library/style.css">
     </head>
     <body>
         <div class="login">
 
             <h1>Member Login</h1>
 
-            <form action="authenticate.php" method="post" class="form login-form">
+            <form action="" method="post" class="form login-form">
 
                 <label class="form-label" for="username">Username</label>
                 <div class="form-group">
@@ -41,5 +42,8 @@ if (isset($_SESSION['account_loggedin'])) {
             </form>
 
         </div>
+
+        <script src="js/JavaScript-Toast-Library/MToasts.js"></script>
+        <script src="./js/script.js"></script>
     </body>
 </html>
