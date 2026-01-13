@@ -51,6 +51,6 @@ if (isset($_SESSION['account_loggedin'])) {
 		</div>
 
         <script src="../js/JavaScript-Toast-Library/MToasts.js"></script>
-        <script src="../js/script.js"></script>
+        <script src="script.js"></script>
 	</body>
 </html>

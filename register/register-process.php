@@ -11,7 +11,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 	// Check if the account exists
 	if ($stmt->num_rows > 0) {
 		// Username already exists
-		echo 'Username already exists! Please choose another!';
+        echo json_encode(["success" => TRUE, "message" => "Username already exists! Please choose another!"]);
 	} else {
 
 		// Insert new account
@@ -21,7 +21,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 	$stmt->close();
 } else {
 	// Something is wrong with the SQL statement, check to make sure the accounts table exists with all 3 fields.
-	echo 'Could not prepare statement!';
+    echo json_encode(["success" => FALSE,"message" => "Could not prepare statement!"]);
 }
 // Close the connection
 $con->close();
