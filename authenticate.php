@@ -2,23 +2,8 @@
 // Start the session
 session_start();
 // Change the below variables to reflect your MySQL database details
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'practicals';
-// Try and connect using the info above
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-// Check for connection errors
-if (mysqli_connect_errno()) {
-    // If there is an error with the connection, stop the script and display the error
-    exit('Failed to connect to MySQL!');
-}
-
-// Now we check if the data from the login form was submitted, isset() will check if the data exists
-if (!isset($_POST['username'], $_POST['password'])) {
-    // Could not get the data that should have been sent
-    exit('Please fill both the username and password fields!');
-}
+require_once("config/db_connect.php");
+header('Content-Type: application/json'); //tell client(browser) its a json data
 
 // Prepare our SQL, which will prevent SQL injection
 if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
@@ -44,15 +29,16 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
             $_SESSION['account_id'] = $id;
             // Output success message
             //echo 'Welcome back, ' . htmlspecialchars($_SESSION['account_name'], ENT_QUOTES) . '!';
-            header('Location: home.php');
+            // header('Location: home.php');
+            echo json_encode(["success" => TRUE, "message" => "Login successful"]);
             exit;
         } else {
             // Incorrect password
-            echo 'Incorrect username and/or password!';
+           echo json_encode(["success" => FALSE,"message" => "Invalid details, try again or register"]);
         }
     } else {
         // Incorrect username
-        echo 'Incorrect username and/or password!';
+        echo json_encode(["success" => FALSE,"message" => "Invalid details, try again or register"]);
     }
 
     // Close the prepared statement
